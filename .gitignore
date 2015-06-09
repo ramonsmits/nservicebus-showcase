@@ -1,2 +1,9 @@
 *.suo
+
 *.DotSettings
+
+*.user
+bin
+obj
+packages
+App_Data
