@@ -20,6 +20,9 @@
                 {"platform", "http://particular.net/service-platform"},
             };
 
+
+        static int last;
+
         public void Handle(ProvisionDownloadResponse message)
         {
             if (DebugFlagMutator.Debug)
@@ -28,7 +31,13 @@
             }
 
             Console.WriteLine("Download for Order # {0} has been provisioned, Publishing Download ready event", message.OrderNumber);
-         
+
+            if (last != message.OrderNumber)
+            {
+                last = message.OrderNumber;
+                throw new Exception("Huge failure!!");
+            }
+
             Bus.Publish<DownloadIsReady>(e =>
             {
                 e.OrderNumber = message.OrderNumber;
