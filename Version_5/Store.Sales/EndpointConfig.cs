@@ -7,6 +7,7 @@ namespace Store.Sales
     {
         public void Customize(BusConfiguration configuration)
         {
+            System.Console.Title = "Sales";
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.Conventions()
                 .DefiningCommandsAs(t => t.Namespace != null && t.Namespace.StartsWith("Store") && t.Namespace.EndsWith("Commands"))

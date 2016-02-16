@@ -6,6 +6,7 @@ namespace Store.Operations
     {
         public void Customize(BusConfiguration configuration)
         {
+            System.Console.Title = "Operations";
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.RijndaelEncryptionService();
             configuration.Conventions()

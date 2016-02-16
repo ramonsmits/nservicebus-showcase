@@ -6,6 +6,7 @@ namespace Store.ContentManagement
     {
         public void Customize(BusConfiguration configuration)
         {
+            System.Console.Title = "Content Management";
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.Conventions()
                 .DefiningCommandsAs(t => t.Namespace != null && t.Namespace.StartsWith("Store") && t.Namespace.EndsWith("Commands"))

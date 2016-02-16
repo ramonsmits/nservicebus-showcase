@@ -6,6 +6,7 @@
     {
         public void Customize(BusConfiguration configuration)
         {
+            System.Console.Title = "Customer Relations";
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.RijndaelEncryptionService();
             configuration.Conventions()
